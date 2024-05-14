@@ -16,13 +16,13 @@ const screen = {
                                 <a href="${repo.html_url}" target="_blank">
                                     <h4>${repo.name}</h4>
                                     <div class="info-repositories"  > 
-                                      <img src="/src/icons/fork.svg" alt="fork icon">
+                                      <img src="/src/icons/fork.png" alt="fork icon">
                                       <p>Forks: ${repo.forks}</p>
-                                      <img src="/src/icons/star.svg" alt="star icon">
+                                      <img src="/src/icons/star.png" alt="star icon">
                                       <p>Stars: ${repo.stargazers_count}</p>
-                                      <img src="/src/icons/watch.svg" alt="watch icon">
+                                      <img src="/src/icons/watch.png" alt="watch icon">
                                       <p>Watchers: ${repo.watchers}</p>
-                                      <img src="/src/icons/language.svg" alt="language icon">
+                                      <img src="/src/icons/language.png" alt="language icon">
                                       <p>Language: ${repo.language??"Nenhuma"}</p>
                                     </div>
                                 </a>
