@@ -1,4 +1,4 @@
-import { baseUrl, eventsQuantify} from "/src/scripts/variables.js"
+import { baseUrl, eventsQuantify} from "../variables.js"
 
 async function getEvents(userName){
     const response = await fetch(`${baseUrl}/${userName}/events?per_page=${eventsQuantify}`)
