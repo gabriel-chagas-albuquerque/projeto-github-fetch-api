@@ -16,13 +16,13 @@ const screen = {
                                 <a href="${repo.html_url}" target="_blank">
                                     <h4>${repo.name}</h4>
                                     <div class="info-repositories"  > 
-                                      <img src="./src/icons/fork.png" alt="fork icon">
+                                      <img src="/src/icons/fork.svg" alt="fork icon">
                                       <p>Forks: ${repo.forks}</p>
-                                      <img src="./src/icons/star.png" alt="star icon">
+                                      <img src="/src/icons/star.svg" alt="star icon">
                                       <p>Stars: ${repo.stargazers_count}</p>
-                                      <img src="./src/icons/watch.png" alt="watch icon">
+                                      <img src="/src/icons/watch.svg" alt="watch icon">
                                       <p>Watchers: ${repo.watchers}</p>
-                                      <img src="./src/icons/language.png" alt="language icon">
+                                      <img src="/src/icons/language.svg" alt="language icon">
                                       <p>Language: ${repo.language??"Nenhuma"}</p>
                                     </div>
                                 </a>
@@ -41,20 +41,18 @@ const screen = {
     }
     let eventsItens = ''
     user.events.forEach(event => {
-      if(event.type === 'CreateEvent' || event.type === 'PushEvent'){
-        if(event.payload.commits === undefined){
+      if(event.type === 'CreateEvent'){
           eventsItens += `  <li>                                  
                               <p><strong>Nome:</strong> ${event.repo.name}</p>
-                              <p><strong>Mensagem:</strong> Esse evento não possui mensagem</p>
+                              <p><strong>Mensagem:</strong> -- Criado um ${event.payload.ref_type}</p>
                             </li>`
         }else{
          let ultimoCommit = event.payload.commits.length-1
         eventsItens += `  <li>                                  
                             <p><strong>Nome:</strong> ${event.repo.name}</p>                   
-                            <p><strong>Mensagem:</strong> ${event.payload.commits[ultimoCommit].message}</p>
+                            <p><strong>Mensagem:</strong> -- ${event.payload.commits[ultimoCommit].message}</p>
                           </li>`
         }  
-      }
     })
     if(user.events.length > 0){
       this.userProfile.innerHTML += `<div class="events section">
